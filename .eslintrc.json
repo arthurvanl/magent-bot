@@ -1,0 +1,106 @@
+
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "es6": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["@typescript-eslint", "prettier"],
+    "ignorePatterns": ["**/dist/**/*.js", "**/lib/**/.js",  "**/node_modules/**/*.js", "loader.js", "register.js"],
+    "rules": {
+        "curly": "error",
+        "no-implicit-globals": "error",
+        "prefer-const": "warn",
+        "no-unused-vars": "off",
+        "no-extra-semi": "error",
+        "no-constant-condition": [
+            "error",
+            {
+            "checkLoops": false
+            }
+        ],
+        "no-dupe-else-if": "error",
+        "no-array-constructor": "error",
+        "lines-between-class-members": [
+        "error",
+            {
+            "enforce": [
+                { "blankLine": "always", "prev": "method", "next": "method" }
+            ]
+            }
+        ],
+        "@typescript-eslint/no-namespace": [
+            "error",
+            {
+            "allowDeclarations": true
+            }
+        ],
+        "prettier/prettier": "off",
+        "@typescript-eslint/ban-types": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variable",
+                "format": ["camelCase", "UPPER_CASE"]
+            },
+            {
+                "selector": "function",
+                "format": ["camelCase", "PascalCase"]
+            },
+            {
+                "selector": "parameter",
+                "format": ["camelCase"],
+                "leadingUnderscore": "allow"
+            },
+            {
+                "selector": "property",
+                "format": ["camelCase", "UPPER_CASE", "PascalCase", "snake_case"]
+            },
+            {
+                "selector": "classProperty",
+                "format": ["camelCase", "UPPER_CASE"],
+                "modifiers": ["private"],
+                "leadingUnderscore": "require"
+            },
+            {
+                "selector": "enumMember",
+                "format": ["PascalCase", "UPPER_CASE"]
+            },
+            {
+                "selector": "typeLike",
+                "format": ["PascalCase"]
+            },
+            {
+                "selector": "objectLiteralProperty",
+                "format": null,
+                "filter": {
+                  // you can expand this regex to add more allowed names
+                  "regex": "^(content-type)$",
+                  "match": true
+                }
+            }
+        ],
+        "@typescript-eslint/no-mixed-enums": "error",
+        "@typescript-eslint/no-duplicate-enum-values": "error",
+        "@typescript-eslint/no-extra-semi": "error",
+        "@typescript-eslint/no-unnecessary-condition": [
+            "error",
+            {
+                "allowConstantLoopConditions": true
+            }
+        ],
+        "@typescript-eslint/no-inferrable-types": "error"
+    }
+  }

@@ -1,0 +1,34 @@
+{
+  "version": "0.0.1-beta.0",
+  "name": "magent-bot",
+  "module": "src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@types/bun": "latest",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@mintymedia/utils": "^1.0.2",
+    "hono": "^4.6.2",
+    "zod": "^3.23.8"
+  },
+  "scripts": {
+    "dev": "bun src/index.ts",
+    "dev:watch": "bun run --hot src/index.ts",
+    "start": "bun dist/index.js",
+    "build": "bun build src/index.ts --outdir dist --target=bun",
+    "docker:start": "docker compose up -d",
+    "docker:stop": "docker compose down --timeout 1",
+    "docker:restart": "bun run docker:stop && bun run docker:start",
+    "docker:logs": "docker logs -f magent_bot",
+    "docker:watch": "bun run docker:restart && bun run docker:logs"
+  }
+}

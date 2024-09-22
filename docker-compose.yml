@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  
+  magent_bot:
+    image: oven/bun:latest
+    container_name: magent_bot
+    command: bun run src/index.ts
+    restart: always
+    ports: 
+      - "3041:3041"
+    volumes:
+      - .:/home/bun/app
+    deploy:
+      resources:
+        limits: 
+          memory: '512M'
+        reservations: 
+          memory: '256M'
+
+volumes:
+  .:
